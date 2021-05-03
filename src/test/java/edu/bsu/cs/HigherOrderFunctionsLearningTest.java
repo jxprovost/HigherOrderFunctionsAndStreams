@@ -14,7 +14,6 @@ import java.time.*;
 
 import java.util.*;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.time.Month.*;
@@ -175,6 +174,19 @@ public class HigherOrderFunctionsLearningTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Determine which month had the most changes.
      * If more than one month is tied for the most, return an arbitrary one of these.
@@ -183,7 +195,7 @@ public class HigherOrderFunctionsLearningTest {
     public void testDetermineMostActiveMonth() {
         Stream<Revision> input = getRevisions("soup30.json");
         Map<Object, List<Revision>> actual = input.collect(groupingBy(
-                m-> Month.from(m.timestamp.atZone(ZoneId.systemDefault()).getMonth()), Collectors.toList()));
+                m-> Month.from(m.timestamp.atZone(ZoneId.systemDefault())), toList()));
 
 
         Month expected = FEBRUARY;
